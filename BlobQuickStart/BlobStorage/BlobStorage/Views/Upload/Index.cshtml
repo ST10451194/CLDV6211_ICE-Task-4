@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Upload to Blob Storage";
+}
+
+<h2>Upload a File</h2>
+
+<form method="post" enctype="multipart/form-data" asp-controller="Upload" asp-action="UploadFile">
+    <input type="file" name="file" />
+    <button type="submit">Upload</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <p><strong>@ViewBag.Message</strong></p>
+}
+
+@if (ViewBag.ImageUrl != null)
+{
+    <p><strong>File URL:</strong> <a href="@ViewBag.ImageUrl" target="_blank">@ViewBag.ImageUrl</a></p>
+    <img src="@ViewBag.ImageUrl" alt="Uploaded image" style="max-width: 300px; border: 1px solid #ccc; padding: 5px;" />
+}
